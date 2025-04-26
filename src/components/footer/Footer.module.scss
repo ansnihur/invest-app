@@ -1,0 +1,177 @@
+.footer {
+  background-color: $blue-dark;
+  color: $white;
+  padding: 2rem 1rem;
+  border-radius: 20px 20px 0 0;
+  margin-top: auto;
+
+  &__wrapper {
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: $yellow;
+    text-decoration: none;
+  }
+
+  &__contacts {
+    p {
+      margin: 0.2rem 0;
+      color: $white;
+      font-size: 0.9rem;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      text-decoration: none;
+      color: $yellow;
+      font-weight: 500;
+
+      @include hover(color, $white);
+    }
+  }
+
+  &__auth {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__register {
+    border: 1px solid $yellow;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    background: none;
+    color: $yellow;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background-color 0.5s ease; 
+
+    text-decoration: none;
+
+    @include hover(background-color, $blue);
+    @include hover(color, $blue-dark);
+    @include hover(border, 1px solid $white);
+  }
+
+  &__login {
+    @include btn;
+    border-radius: 2rem;
+    text-decoration: none;
+  }
+
+  &__subscribe {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    input {
+      border: 1px solid $yellow;
+      background: none;
+      color: $white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      outline: none;
+
+      font-family: $font-family-base;
+
+      &::placeholder {
+        color: $white;
+        opacity: 0.7;
+      }
+    }
+
+    button {
+      background-color: $blue;
+      color: $black;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+
+      font-family: $font-family-base;
+
+      @include btn;
+    }
+  }
+
+  &__bottom {
+    margin-top: 2rem;
+    @include flex-between;
+    align-items: center;
+    font-size: 0.9rem;
+
+    p {
+      color: $yellow;
+      font-weight: 500;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 1rem;
+
+    a {
+      color: $white;
+      font-size: 1rem;
+      @include hover(color, $yellow);
+    }
+  }
+
+  @media (max-width: $mobile-max-width) {
+    &__wrapper {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    &__right {
+      align-items: center;
+    }
+
+    &__nav {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    &__auth {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    &__subscribe {
+      flex-direction: column;
+      width: 100%;
+
+      input, button {
+        width: 100%;
+      }
+    }
+
+    &__bottom {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+}

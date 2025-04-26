@@ -1,0 +1,24 @@
+@use './vars' as *;
+@use './mixins' as *;
+@use './extends' as *;
+
+
+h1 {
+  @extend %h1-style;
+}
+
+h2 {
+  @extend %h2-style;
+}
+
+h3 {
+  @extend %h3-style;
+}
+
+h4 {
+  @extend %h4-style;
+}
+
+p {
+  @extend %p-style;
+}

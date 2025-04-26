@@ -1,0 +1,68 @@
+@use './vars' as *;
+@use 'sass:color';
+
+// 🔁 Hover transition (универсальний)
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+// 💻 Media queries
+@mixin on-mobile {
+  @media (min-width: $mobile-min-width) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+// 🔘 Стилі кнопки
+@mixin btn {
+  padding: 0.5rem 1rem;
+  background-color: $yellow;
+  border: none;
+  border-radius: 8px;
+  color: $black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: color.scale($yellow, $lightness: -10%);
+  }
+}
+
+// 📦 Flex utilities
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// 🔤 Responsive typography
+@mixin responsive-font($desktop-size, $mobile-size) {
+  font-size: $desktop-size;
+
+  @media (max-width: $mobile-max-width) {
+    font-size: $mobile-size;
+  }
+}

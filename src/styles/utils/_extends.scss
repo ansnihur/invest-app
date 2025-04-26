@@ -1,0 +1,38 @@
+@use './vars' as *;
+@use './mixins' as *;
+
+
+%h1-style {
+  font-family: $font-family-base;
+  font-weight: 700;
+  color: $black;
+  @include responsive-font($font-size-h1, $font-size-h1-mobile);
+}
+
+%h2-style {
+  font-family: $font-family-base;
+  font-weight: 600;
+  color: $yellow;
+  @include responsive-font($font-size-h2, $font-size-h2-mobile);
+}
+
+%h3-style {
+  font-family: $font-family-base;
+  font-weight: 500;
+  color: $black;
+  @include responsive-font($font-size-h3, $font-size-h3-mobile);
+}
+
+%h4-style {
+  font-family: $font-family-base;
+  font-weight: 500;
+  color: $yellow;
+  @include responsive-font($font-size-h4, $font-size-h4-mobile);
+}
+
+%p-style {
+  font-family: $font-family-base;
+  font-weight: 400;
+  color: $black;
+  @include responsive-font($font-size-p, $font-size-p-mobile);
+}
