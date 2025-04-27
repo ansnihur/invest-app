@@ -17,14 +17,15 @@ SCSS
 
 JavaScript
 
-🎨 Дизайн
-Макети розроблено у Figma(https://www.figma.com/design/xfz27D6BXXBOyTwIajeDXT/NovaTerra?node-id=3-122&t=eqKpIrXZpz4VBPis-1)
+## 🎨 Дизайн
+- [Макети розроблено у Figma](https://www.figma.com/design/xfz27D6BXXBOyTwIajeDXT/NovaTerra?node-id=3-122&t=eqKpIrXZpz4VBPis-1)
 
-🚀 Демо
-Переглянути сайт(https://invest-app-sable.vercel.app/)
+## 🚀 Демо
+- [Переглянути сайт](https://invest-app-sable.vercel.app/)
 
-📢 Презентація
-Переглянути презентацію в Canva(https://www.canva.com/design/DAGlw0sTVBQ/7UJd3C-jsq_csh8U4S48hA/edit?utm_content=DAGlw0sTVBQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+## 📢 Презентація
+- [Переглянути презентацію в Canva](https://www.canva.com/design/DAGlw0sTVBQ/7UJd3C-jsq_csh8U4S48hA/edit?utm_content=DAGlw0sTVBQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 
 👥 Наша команда
 Снігур Анастасія — Full Stack Developer
