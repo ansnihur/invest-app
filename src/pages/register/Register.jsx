@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import styles from './Register.module.scss';
+import BackgroundGradient from '../../components/background/BackgroundGradient';
 
 const Register = () => {
   const { login } = useAuth();
@@ -66,6 +67,7 @@ const Register = () => {
 
   return (
     <div className={styles.wrapper}>
+      <BackgroundGradient />
       <form onSubmit={handleSubmit} className={styles.form}>
         <h1 className={styles.title}>Реєстрація</h1>
         {error && <div className={styles.error}>{error}</div>}

@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import styles from './AdminProfile.module.scss'
+import BackgroundGradient from '../../components/background/BackgroundGradient'
 
 const AdminProfile = () => {
   const { user } = useAuth()
@@ -31,6 +32,7 @@ const AdminProfile = () => {
 
   return (
     <div className={styles.wrapper}>
+      <BackgroundGradient />
       <div className={styles.sidebar}>
         <button
           className={activeTab === 'verification' ? styles.active : ''}

@@ -5,6 +5,7 @@ import styles from './Profile.module.scss'
 import { useAuth } from '../../context/AuthContext'
 import FlipCard from '../../components/flipcard/FlipCard'
 import PortfolioChart from '../../components/portfolio/PortfolioChart'
+import BackgroundGradient from '../../components/background/BackgroundGradient'
 
 const Profile = () => {
   const { user, updateProfile } = useAuth()
@@ -102,6 +103,7 @@ const Profile = () => {
 
   return (
     <div className={styles.wrapper}>
+      <BackgroundGradient />
       <div className={styles.sidebar}>
         {tabs.map(t => (
           <button

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import styles from './CreateProject.module.scss'
+import BackgroundGradient from '../../components/background/BackgroundGradient'
 
 const CreateProject = () => {
   const { user } = useAuth()
@@ -70,6 +71,7 @@ const CreateProject = () => {
 
   return (
     <div className={styles.wrapper}>
+      <BackgroundGradient />
       <form className={styles.form} onSubmit={handleSubmit}>
         <h2 className={styles.title}>Реєстрація проєкту</h2>
 

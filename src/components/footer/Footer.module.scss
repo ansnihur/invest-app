@@ -1,6 +1,8 @@
 .footer {
-  background: #212121;
-  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: $black;
   padding: 2rem 1rem;
   border-radius: 20px 20px 0 0;
   margin-top: auto;
@@ -17,17 +19,10 @@
     gap: 1rem;
   }
 
-  &__logo {
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: $yellow;
-    text-decoration: none;
-  }
-
   &__contacts {
     p {
       margin: 0.2rem 0;
-      color: $white;
+      color: $black;
       font-size: 0.9rem;
     }
   }
@@ -45,10 +40,10 @@
 
     a {
       text-decoration: none;
-      color: $yellow;
+      color: $black;
       font-weight: 500;
 
-      @include hover(color, $white);
+      @include hover(color, $black);
     }
   }
 
@@ -58,11 +53,11 @@
   }
 
   &__register {
-    border: 1px solid $yellow;
+    border: 1px solid $black;
     border-radius: 2rem;
     padding: 0.5rem 1rem;
     background: none;
-    color: $yellow;
+    color: $black;
     font-weight: 500;
     font-size: 0.9rem;
     transition: background-color 0.5s ease; 
@@ -80,42 +75,6 @@
     text-decoration: none;
   }
 
-  &__subscribe {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-
-    input {
-      border: 1px solid $yellow;
-      background: none;
-      color: $white;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      outline: none;
-
-      font-family: $font-family-base;
-
-      &::placeholder {
-        color: $white;
-        opacity: 0.7;
-      }
-    }
-
-    button {
-      background-color: $blue;
-      color: $black;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-
-      font-family: $font-family-base;
-
-      @include btn;
-    }
-  }
-
   &__bottom {
     margin-top: 2rem;
     @include flex-between;
@@ -123,7 +82,7 @@
     font-size: 0.9rem;
 
     p {
-      color: $yellow;
+      color: $black;
       font-weight: 500;
     }
   }
@@ -133,7 +92,7 @@
     gap: 1rem;
 
     a {
-      color: $white;
+      color: $black;
       font-size: 1rem;
       @include hover(color, $yellow);
     }

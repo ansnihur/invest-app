@@ -40,7 +40,6 @@ const Navbar = () => {
           <nav className={`${styles.nav} ${isOpen ? styles.open : ''}`}>
             <Link to="/projects" onClick={closeMenu}>Проєкти</Link>
             <Link to="/analytics" onClick={closeMenu}>Аналітика</Link>
-            <Link to="/contacts" onClick={closeMenu}>Відгуки</Link>
 
             <div className={styles.authButtons}>
               {user ? (

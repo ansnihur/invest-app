@@ -2,7 +2,7 @@
 
 .hero {
   position: relative;
-  padding: 4rem 1rem;
+  padding: 2rem 1rem;
   text-align: center;
   overflow: hidden;
 }
@@ -27,20 +27,43 @@
   border-radius: 8px;
 }
 
+
 .marker {
   position: absolute;
   width: 16px;
   height: 16px;
-  background-color: #1abc9c;
+  background: linear-gradient(135deg, #f7cf75 0%, #f39c12 100%);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   animation: pulse 2s infinite ease-in-out;
+
+  &Icon {
+    
+    
+  @keyframes pulse {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.4);
+      opacity: 0.6;
+    }
+  }
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-  50%      { transform: translate(-50%, -50%) scale(1.4); opacity: 0.6; }
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0.6;
+  }
 }
+
 
 .cta {
   position: absolute;
@@ -57,6 +80,8 @@
   cursor: pointer;
   transition: transform 0.2s;
   z-index: 2;
+
+  font-family: $font-family-base;
 }
 
 .cta:hover {
@@ -119,4 +144,11 @@
   .stats { overflow-x: auto; padding-bottom: 1rem; }
   .stat { flex: 0 0 200px; }
   .nav { flex-wrap: wrap; gap: 0.5rem; }
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  background-color: $yellow;
+  border: 1px solid transparent;
 }

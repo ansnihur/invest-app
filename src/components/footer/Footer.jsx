@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaYoutube, FaInstagram, FaTelegram } from 'react-icons/fa';
-import { useAuth } from '@/context/AuthContext'; // ➡️ Додаємо
+import { useAuth } from '../../context/AuthContext';
 import styles from './Footer.module.scss';
+import logo from '../../assets/icons/logo.svg';
 
 const Footer = () => {
-  const { user } = useAuth(); // ➡️ Використовуємо
+  const { user } = useAuth();
 
   return (
     <footer className={styles.footer}>
@@ -14,7 +15,7 @@ const Footer = () => {
           {/* Ліва частина */}
           <div className={styles.footer__left}>
             <Link to="/" className={styles.footer__logo}>
-              Invicta
+              <img src={logo} alt="logo" />
             </Link>
             <div className={styles.footer__contacts}>
               <p><strong>Зв'яжіться з нами:</strong></p>
@@ -32,24 +33,18 @@ const Footer = () => {
               <Link to="/contacts">Контакти</Link>
             </nav>
 
-            {/* 🔥 Показуємо кнопки ТІЛЬКИ якщо немає користувача */}
             {!user && (
               <div className={styles.footer__auth}>
                 <Link to="/register" className={styles.footer__register}>Не маєш акаунту?</Link>
                 <Link to="/login" className={styles.footer__login}>Вхід</Link>
               </div>
             )}
-
-            <form className={styles.footer__subscribe}>
-              <input type="email" placeholder="Email" />
-              <button type="submit">Підпишись на новини</button>
-            </form>
           </div>
         </div>
 
         {/* Нижня лінія футера */}
         <div className={styles.footer__bottom}>
-          <p>© 2025 Nova Terra. Всі права захищені.</p>
+          <p>© 2025 Invícta. Всі права захищені.</p>
           <div className={styles.footer__socials}>
             <a href="#"><FaFacebookF /></a>
             <a href="#"><FaYoutube /></a>

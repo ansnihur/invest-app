@@ -1,8 +1,8 @@
-// src/components/homeparts/HeroSection.jsx
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './HeroSection.module.scss'
 import mapSvg from '../../assets/icons/map.svg'
+import markerIcon from '../../assets/icons/star.svg'
 
 const HeroSection = () => {
   const navigate = useNavigate()
@@ -23,20 +23,31 @@ const HeroSection = () => {
     else if (id === 'projects') navigate('/projects')
   }
 
+  const markers = [
+    { top: '30%', left: '50%' },
+    { top: '45%', left: '80%' },
+    { top: '40%', left: '20%' },
+    { top: '85%', left: '65%' }
+  ]
+
   return (
     <section className={styles.hero}>
       <h1 className={styles.title}>
-      Invicta — це про незламність.
-      Вони за нас, а ми за них.
+        Invícta — це про незламність.
+        <div className={styles.subtitle}>Вони за нас, а ми за них.</div>
       </h1>
 
       <div className={styles.mapWrapper}>
         <img src={mapSvg} alt="Карта України" className={styles.map} />
-        <div className={styles.marker} style={{ top: '30%', left: '50%' }} />
-        <div className={styles.marker} style={{ top: '45%', left: '80%' }} />
-        <div className={styles.marker} style={{ top: '40%', left: '20%' }} />
-        <div className={styles.marker} style={{ top: '85%', left: '65%' }} />
-
+        {markers.map((pos, i) => (
+          <div
+            key={i}
+            className={styles.marker}
+            style={{ top: pos.top, left: pos.left }}
+          >
+            <img src={markerIcon} alt="Marker" className={styles.markerIcon} />
+          </div>
+        ))}
         <button
           className={styles.cta}
           onClick={() => scrollTo('projects')}
@@ -45,23 +56,17 @@ const HeroSection = () => {
         </button>
       </div>
 
-      <nav className={styles.nav}>
-        <button onClick={() => scrollTo('benefits')}>Чим це корисно?</button>
-        <button onClick={() => scrollTo('projects')}>Наші проєкти</button>
-        <button onClick={() => scrollTo('contacts')}>Контакти</button>
-      </nav>
-
       <div className={styles.stats}>
         <div className={styles.stat}>
-          <div className={styles.number}>120+</div>
+          <div className={styles.number}>75+</div>
           <div className={styles.label}>Проєктів</div>
         </div>
         <div className={styles.stat}>
-          <div className={styles.number}>5 000 000₴</div>
+          <div className={styles.number}>50 000₴</div>
           <div className={styles.label}>Інвестовано</div>
         </div>
         <div className={styles.stat}>
-          <div className={styles.number}>800+</div>
+          <div className={styles.number}>80+</div>
           <div className={styles.label}>Інвесторів</div>
         </div>
       </div>

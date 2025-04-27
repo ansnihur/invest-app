@@ -1,4 +1,3 @@
-// src/components/flipcard/FlipCard.jsx
 import { useState } from 'react';
 import { Bookmark, BookmarkCheck } from 'lucide-react';
 import styles from './FlipCard.module.scss';
@@ -23,6 +22,15 @@ const FlipCard = ({ data }) => {
     toggleFavorite(data);
   };
 
+  const handleInvest = (e) => {
+    e.stopPropagation();
+    if (!user) {
+      alert('Будь ласка, увійдіть у акаунт, щоб інвестувати');
+      return;
+    }
+    alert(`Ви інвестували у проєкт: ${data.title}`);
+  };
+
   return (
     <div className={styles.flipCard}>
       <div
@@ -33,23 +41,34 @@ const FlipCard = ({ data }) => {
       </div>
 
       <div className={`${styles.inner} ${flipped ? styles.flipped : ''}`}>
+        {/* FRONT */}
         <div className={styles.front} onClick={handleFlip}>
           <div
             className={styles.image}
             style={{ backgroundImage: `url(${data.image})` }}
           />
           <div className={styles.info}>
-            <h3>{data.title}</h3>
-            <p>{data.subtitle}</p>
-            <button className={styles.btn}>ⓘ детальніше</button>
+            <h5>{data.title}</h5>
+            <div>
+              {data.subtitle.split('\n').map((line, index) => (
+                <p key={index}>{line}</p>
+              ))}
+            </div>
+            <button className={styles.btn}>Натисни для деталей</button>
           </div>
         </div>
 
+        {/* BACK */}
         <div className={styles.back} onClick={handleFlip}>
           <div className={styles.details}>
-            {data.details.split('\n').map((line, i) => <p key={i}>{line}</p>)}
+            {data.details.split('\n').map((line, i) => (
+              <p key={i}>{line}</p>
+            ))}
           </div>
-          <button className={styles.btn}>Назад</button>
+          <div className={styles.backButtons}>
+            <button className={styles.btn} onClick={handleInvest}>Інвестувати</button>
+            <button className={styles.btnSecondary}>Назад</button>
+          </div>
         </div>
       </div>
     </div>
