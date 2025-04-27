@@ -1,7 +1,10 @@
-
 .trustSection {
     padding: 80px 20px;
     text-align: center;
+  
+    @include on-mobile {
+      padding: 60px 16px;
+    }
   }
   
   .title {
@@ -9,6 +12,10 @@
     font-weight: bold;
     margin-bottom: 40px;
     color: #111;
+  
+    @include on-mobile {
+      font-size: 1.5rem;
+    }
   }
   
   .testimonials {
@@ -28,6 +35,11 @@
     border-radius: 25px;
     padding: 24px;
     box-sizing: border-box;
+  
+    @include on-mobile {
+      width: 100%;
+      max-width: 340px;
+    }
   }
   
   .quote {
@@ -35,6 +47,10 @@
     margin: 0 0 16px;
     line-height: 1.5;
     color: #333;
+  
+    @include on-mobile {
+      font-size: 0.95rem;
+    }
   }
   
   .author {
@@ -42,6 +58,10 @@
     text-align: right;
     font-weight: 600;
     color: #555;
+  
+    @include on-mobile {
+      font-size: 0.9rem;
+    }
   }
   
   .benefitsList {
@@ -49,6 +69,10 @@
     padding: 0;
     margin: 40px auto 0;
     max-width: 800px;
+  
+    @include on-mobile {
+      margin-top: 30px;
+    }
   }
   
   .benefit {
@@ -57,6 +81,13 @@
     align-items: flex-start;
     padding-left: 60px;
     margin-bottom: 60px;
+  
+    @include on-mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 0;
+      padding-top: 40px;
+    }
   }
   
   .benefit:last-child {
@@ -70,6 +101,12 @@
     font-size: 3rem;
     font-weight: bold;
     color: #111;
+  
+    @include on-mobile {
+      position: static;
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
   }
   
   .benefitText {
@@ -77,6 +114,10 @@
     font-size: 1rem;
     line-height: 1.5;
     color: #333;
+  
+    @include on-mobile {
+      font-size: 0.95rem;
+    }
   }
   
   .benefit:not(:last-child)::after {
@@ -88,5 +129,9 @@
     height: 1px;
     background-color: #111;
     opacity: 0.2;
+  
+    @include on-mobile {
+      left: 0;
+    }
   }
   

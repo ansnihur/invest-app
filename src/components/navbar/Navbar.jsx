@@ -7,6 +7,7 @@ import logo from '../../assets/icons/logo.svg';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [logoutMessage, setLogoutMessage] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const location = useLocation();
   const navigate = useNavigate();
   const { user, logout } = useAuth();

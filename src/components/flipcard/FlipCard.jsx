@@ -5,6 +5,7 @@ import { useAuth } from '../../context/AuthContext';
 
 const FlipCard = ({ data }) => {
   const [flipped, setFlipped] = useState(false);
+  const [showAgreement, setShowAgreement] = useState(false);
   const { user, toggleFavorite } = useAuth();
   const isFav = user?.favorites?.some(p => p.id === data.id);
 
@@ -28,7 +29,16 @@ const FlipCard = ({ data }) => {
       alert('Будь ласка, увійдіть у акаунт, щоб інвестувати');
       return;
     }
-    alert(`Ви інвестували у проєкт: ${data.title}`);
+    setShowAgreement(true);
+  };
+
+  const acceptAgreement = () => {
+    setShowAgreement(false);
+    window.open('https://www.sandbox.paypal.com', '_blank');
+  };
+
+  const declineAgreement = () => {
+    setShowAgreement(false);
   };
 
   return (
@@ -49,10 +59,15 @@ const FlipCard = ({ data }) => {
           />
           <div className={styles.info}>
             <h5>{data.title}</h5>
-            <div>
-              {data.subtitle.split('\n').map((line, index) => (
-                <p key={index}>{line}</p>
-              ))}
+            <div className={styles.subtitle}>
+              {data.subtitle.split('\n').map((line, index) => {
+                const [label, ...rest] = line.split(':');
+                return (
+                  <p key={index}>
+                    <strong>{label}:</strong> {rest.join(':').trim()}
+                  </p>
+                );
+              })}
             </div>
             <button className={styles.btn}>Натисни для деталей</button>
           </div>
@@ -61,9 +76,14 @@ const FlipCard = ({ data }) => {
         {/* BACK */}
         <div className={styles.back} onClick={handleFlip}>
           <div className={styles.details}>
-            {data.details.split('\n').map((line, i) => (
-              <p key={i}>{line}</p>
-            ))}
+            {data.details.split('\n').map((line, i) => {
+              const [label, ...rest] = line.split(':');
+              return (
+                <p key={i}>
+                  <strong>{label}:</strong> {rest.join(':').trim()}
+                </p>
+              );
+            })}
           </div>
           <div className={styles.backButtons}>
             <button className={styles.btn} onClick={handleInvest}>Інвестувати</button>
@@ -71,6 +91,21 @@ const FlipCard = ({ data }) => {
           </div>
         </div>
       </div>
+
+      {showAgreement && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <h5>Угода Інвестора</h5>
+            <p>Я, діючи добровільно та усвідомлено, підтверджую свою згоду на інвестування коштів у зазначений проєкт.</p>
+            <p>Я розумію можливі ризики, включаючи можливість втрати інвестованих коштів.</p>
+            <p>Я погоджуюсь із усіма умовами та приймаю їх без застережень.</p>
+            <div className={styles.modalButtons}>
+              <button onClick={acceptAgreement} className={styles.agreeButton}>Погоджуюсь та інвестую</button>
+              <button onClick={declineAgreement} className={styles.cancelButton}>Скасувати</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

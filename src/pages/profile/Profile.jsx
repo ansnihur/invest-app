@@ -23,10 +23,14 @@ const Profile = () => {
     setFormData(d => ({ ...d, [e.target.name]: e.target.value }))
 
   const handleSave = () => {
-    updateProfile(formData)
-    setMsg('Збережено ✅')
-    setTimeout(() => setMsg(''), 2000)
-  }
+    updateProfile(formData);
+    
+    localStorage.setItem('user', JSON.stringify(formData));
+    
+    setMsg('Збережено ✅');
+    setTimeout(() => setMsg(''), 2000);
+  };
+  
 
   const tabs = [
     {
@@ -58,7 +62,7 @@ const Profile = () => {
     },
     {
       key: 'projects',
-      label: 'Проекти',
+      label: 'Проєкти',
       content: (
         <div className={styles.projectsActions}>
           <button

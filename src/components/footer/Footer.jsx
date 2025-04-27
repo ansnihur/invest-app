@@ -28,9 +28,8 @@ const Footer = () => {
           {/* Права частина */}
           <div className={styles.footer__right}>
             <nav className={styles.footer__nav}>
-              <Link to="/projects">Фонди</Link>
-              <Link to="/investors">Інвесторам</Link>
-              <Link to="/contacts">Контакти</Link>
+              <Link to="/projects">Проєкти</Link>
+              <Link to="/analytics">Аналітика</Link>
             </nav>
 
             {!user && (

@@ -3,7 +3,10 @@ import { createContext, useContext, useState, useEffect } from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem('user');
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
 
   useEffect(() => {
     const stored = localStorage.getItem('user');
@@ -35,11 +38,19 @@ export const AuthProvider = ({ children }) => {
     saveUser({ ...user, favorites: updated });
   };
 
+  // ✅ Додаємо оновлення профілю:
+  const updateProfile = (updatedData) => {
+    if (!user) return;
+    const updatedUser = { ...user, ...updatedData };
+    saveUser(updatedUser);
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, logout, toggleFavorite }}>
+    <AuthContext.Provider value={{ user, login, logout, toggleFavorite, updateProfile }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => useContext(AuthContext);

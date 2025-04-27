@@ -1,8 +1,18 @@
 .flipCard {
-  width: 300px;
-  height: 450px;
+  width: 200px;
+  height: 350px;
   perspective: 1000px;
   position: relative;
+
+  @include on-tablet {
+    width: 250px;
+    height: 400px;
+  }
+
+  @include on-desktop {
+    width: 280px;
+    height: 420px;
+  }
 }
 
 .inner {
@@ -54,12 +64,22 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  p {
+   font-size: 14px;
+   text-align: start;
+  }
 }
 
 .details {
   flex-grow: 1;
   margin-bottom: 1rem;
   overflow-y: auto;
+
+  p {
+    font-size: 14px;
+    text-align: start;
+  }
 }
 
 .backButtons {
@@ -82,6 +102,8 @@
   background: #1abc9c;
   color: white;
 
+  font-family: $font-family-base;
+
   &:hover {
     background: rgb(61, 209, 123);
   }
@@ -90,6 +112,8 @@
 .btnSecondary {
   background: #eeeeee;
   color: #333;
+
+  font-family: $font-family-base;
 
   &:hover {
     background: #dddddd;
@@ -106,4 +130,74 @@
 
 .selected {
   color: #f39c12;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+  p {
+    font-size: 14px;
+    text-align: start;
+  }
+}
+
+.modalButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+
+}
+
+.agreeButton {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+
+  font-family: $font-family-base;
+
+  &:hover {
+    background-color: #43a047;
+  }
+}
+
+.cancelButton {
+  background-color: #e53935;
+  color: white;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+
+  font-family: $font-family-base;
+
+  &:hover {
+    background-color: #d32f2f;
+  }
 }

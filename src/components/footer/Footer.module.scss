@@ -50,6 +50,7 @@
   &__auth {
     display: flex;
     gap: 1rem;
+
   }
 
   &__register {
@@ -64,9 +65,7 @@
 
     text-decoration: none;
 
-    @include hover(background-color, $blue);
-    @include hover(color, $blue-dark);
-    @include hover(border, 1px solid $white);
+    @include hover(background-color, $yellow);
   }
 
   &__login {
@@ -117,15 +116,6 @@
     &__auth {
       flex-direction: column;
       gap: 0.5rem;
-    }
-
-    &__subscribe {
-      flex-direction: column;
-      width: 100%;
-
-      input, button {
-        width: 100%;
-      }
     }
 
     &__bottom {

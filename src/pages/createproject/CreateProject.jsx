@@ -157,17 +157,8 @@ const CreateProject = () => {
         <button className={styles.button} type="submit">
           Надіслати заявку
         </button>
-        {success && <div className={styles.success}>Ваш проєкт розглядається! Ми з вами зв’яжемося.</div>}
+        {success && <div className={styles.success}>Ваш проєкт розглядається! Ми з Вами зв’яжемося.</div>}
       </form>
-      <button
-        onClick={() => {
-            localStorage.removeItem('projectRequests')
-            setProjectRequests([])
-        }}
-        >
-        Очистити всі заявки
-    </button>
-
     </div>
   )
 }

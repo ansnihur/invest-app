@@ -32,10 +32,12 @@ const HeroSection = () => {
 
   return (
     <section className={styles.hero}>
-      <h1 className={styles.title}>
-        Invícta — це про незламність.
-        <div className={styles.subtitle}>Вони за нас, а ми за них.</div>
-      </h1>
+      <div className={styles.titleWrapper}>
+        <h1 className={styles.title}>
+            Invícta — це про
+        </h1>
+        <p className={styles.subtitle}>незламність.</p>
+    </div>
 
       <div className={styles.mapWrapper}>
         <img src={mapSvg} alt="Карта України" className={styles.map} />

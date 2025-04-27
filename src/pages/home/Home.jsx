@@ -1,6 +1,6 @@
 import React from 'react'
 import HeroSection from '../../components/homeparts/HeroSection'
-import Contacts from '../../components/contacts/Contacts'
+// import Contacts from '../../pages/contacts/Contacts'
 import DescriptionText from '../../components/homeparts/DescriptionSection'
 import BackgroundGradient from '../../components/background/BackgroundGradient'
 import PeopleSection from '../../components/homeparts/PeopleSection'
@@ -15,9 +15,7 @@ const Home = () => {
       <DescriptionText />
       <PeopleSection />
       <ProjectsSection />
-      <section id="contacts">
-        <Contacts />
-      </section>
+      {/* <ContactsSection /> */}
       <TrustSection />
     </>
   )

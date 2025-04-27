@@ -1,82 +1,116 @@
 @use 'sass:color';
 
 .wrapper {
-  display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
-  padding: 2rem;
-}
+    display: flex;
+    flex-direction: row; // БАЗОВО row
+    gap: 2rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 1200px;
+  
+    @include on-mobile {
+      flex-direction: column; // ЛИШЕ на мобілках колонка
+      padding: 1.5rem;
+      gap: 1.5rem;
+    }
+  }
+  
 
 .sidebar {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  min-width: 250px;
 
   button {
-    background-color: $yellow;
-    border: none;
+    background: #1abc9c;
+    border: 2px solid transparent;
     padding: 1rem 2rem;
-    border-radius: 10px;
-    font-weight: bold;
+    border-radius: 12px;
+    font-weight: 600;
     cursor: pointer;
     color: $black;
     font-size: 1rem;
-    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.3s ease;
+    font-family: $font-family-base;
 
     &:hover {
-      background-color: $gray-dark;
-      color: $white;
+      background-color: $yellow;
+      color: $black;
+      transform: scale(1.05);
+    }
+
+    @include on-mobile {
+      padding: 0.8rem 1.2rem;
+      font-size: 0.95rem;
     }
   }
 
   .active {
     background-color: $yellow;
-    color: $white;
+    color: $black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
   }
 }
 
-.content {
-  flex: 1;
-}
-
 .contentBox {
+  flex: 1;
   background: $white;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  animation: fadeIn 0.5s ease;
 }
 
 .tabHeader {
   background-color: $yellow;
-  color: $white;
-  padding: 1rem 1.5rem;
-  font-size: 1.25rem;
+  color: $black;
+  padding: 1.5rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+
+  @include on-mobile {
+    font-size: 1.25rem;
+    padding: 1rem;
+  }
 }
 
 .content,
 .form,
 .projectsGrid {
-  padding: 1.5rem;
+  padding: 2rem;
+
+  @include on-mobile {
+    padding: 1.5rem;
+  }
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 input {
+  background: #f9f9f9;
   padding: 1rem;
   border: 2px solid transparent;
-  border-radius: 10px;
-  color: $black;
+  border-radius: 12px;
   font-size: 1rem;
   outline: none;
-  transition: border-color 0.3s;
+  transition: all 0.3s;
 
   &:focus {
     border-color: $yellow;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(255, 214, 10, 0.2);
+  }
+
+  @include on-mobile {
+    padding: 0.8rem;
+    font-size: 0.95rem;
   }
 }
 
@@ -85,28 +119,86 @@ input {
   color: $white;
   border: none;
   padding: 1rem;
-  border-radius: 10px;
-  margin-top: 1rem;
+  border-radius: 12px;
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
 
   &:hover {
-    background-color: color.scale($yellow, $lightness: -12.5925925926%);
+    background-color: darken($yellow, 10%);
+    transform: translateY(-2px);
+  }
+
+  @include on-mobile {
+    padding: 0.8rem;
+    font-size: 0.95rem;
   }
 }
 
 .success {
   color: green;
   text-align: center;
-  margin-bottom: 1rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
+  background: #e8f5e9;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+
+  @include on-mobile {
+    font-size: 1rem;
+  }
 }
 
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+
+  @include on-mobile {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.projectsActions {
+  display: flex;
+  gap: 1rem;
+
+  @include on-mobile {
+    flex-direction: column;
+  }
+}
+
+.actionButton {
+  width: 100%;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  background: #1abc9c;
+  font-family: $font-family-base;
+  font-size: 1rem;
+
+  &:hover {
+    background: rgb(61, 209, 123);
+  }
+
+  @include on-mobile {
+    padding: 0.6rem;
+    font-size: 0.95rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

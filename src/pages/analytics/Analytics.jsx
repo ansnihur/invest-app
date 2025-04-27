@@ -2,6 +2,7 @@ import { allProjects } from '@/data/projects';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, LabelList } from 'recharts';
 import styles from './Analytics.module.scss';
 import BackgroundGradient from '../../components/background/BackgroundGradient';
+
 const Analytics = () => {
   const sortedProjects = [...allProjects].sort((a, b) => b.investedAmount - a.investedAmount);
 
@@ -21,7 +22,13 @@ const Analytics = () => {
             <XAxis type="number" tickFormatter={(value) => `$${value/1000}k`} />
             <YAxis type="category" dataKey="title" />
             <Tooltip formatter={(value) => `$${value.toLocaleString()}`} />
-            <Bar dataKey="investedAmount" fill="#4caf50">
+            <Bar
+              dataKey="investedAmount"
+              fill="#4caf50"
+              isAnimationActive={true}  
+              animationDuration={1500}     
+              animationEasing="ease-out"         
+            >
               <LabelList dataKey="investedAmount" position="right" formatter={(value) => `$${(value/1000).toFixed(0)}k`} />
             </Bar>
           </BarChart>
