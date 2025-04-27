@@ -1,15 +1,21 @@
-import React from "react";
-import Footer from "../../components/footer/Footer";
+import React from 'react'
+import HeroSection from '../../components/homeparts/HeroSection'
+import Contacts from '../../components/contacts/Contacts'
+// import ProjectsSection from '../../components/ProjectsSection/ProjectsSection'
+// import BenefitsSection from '../../components/BenefitsSection/BenefitsSection'
 
 const Home = () => {
-    return (
-        <div className="container">
-            {/* ВЕРХНІЙ КОМПОНЕНТ НА МЕНІ */}
+  return (
+    <>
+      <HeroSection />
+      {/* <BenefitsSection /> */}
+      {/* <ProjectsSection /> */}
+      {/* Контактна форма замість помилкового <Contacts /> */}
+      <section id="contacts">
+        <Contacts />
+      </section>
+    </>
+  )
+}
 
-            {/* ТУТ БУДУТЬ ІНШІ КОМПОНЕНТИ */}
-        </div>
-    );
-  };
-  
-  export default Home;
-  
+export default Home;

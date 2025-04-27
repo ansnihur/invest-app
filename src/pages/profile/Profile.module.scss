@@ -1,0 +1,112 @@
+@use 'sass:color';
+
+.wrapper {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  button {
+    background-color: $yellow;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    color: $black;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+      background-color: $gray-dark;
+      color: $white;
+    }
+  }
+
+  .active {
+    background-color: $yellow;
+    color: $white;
+  }
+}
+
+.content {
+  flex: 1;
+}
+
+.contentBox {
+  background: $white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.tabHeader {
+  background-color: $yellow;
+  color: $white;
+  padding: 1rem 1.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.content,
+.form,
+.projectsGrid {
+  padding: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  padding: 1rem;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  color: $black;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: $yellow;
+  }
+}
+
+.saveButton {
+  background-color: $yellow;
+  color: $white;
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: color.scale($yellow, $lightness: -12.5925925926%);
+  }
+}
+
+.success {
+  color: green;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}

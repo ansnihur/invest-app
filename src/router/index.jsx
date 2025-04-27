@@ -1,13 +1,15 @@
 import { createBrowserRouter } from 'react-router-dom';
-import MainLayout from '../layouts/MainLayout'; // твій Layout
+import MainLayout from '../layouts/MainLayout';
 import Home from '../pages/home/Home';
 import Login from '../pages/login/Login';
 import Register from '../pages/register/Register';
 import Profile from '../pages/profile/Profile';
-import Projects from '../pages/projects/Projects';
+import Projects from '../pages/cards/Projects';
 import Analytics from '../pages/analytics/Analytics';
-import Contacts from '../pages/contacts/Contacts';
+import Contacts from '../components/contacts/Contacts';
 import NotFound from '../pages/notfound/NotFound';
+import AdminProfile from '../pages/adminprofile/AdminProfile';
+import CreateProject from '../pages/createproject/CreateProject';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,8 @@ const router = createBrowserRouter([
       { path: '/analytics', element: <Analytics /> },
       { path: '/contacts', element: <Contacts /> },
       { path: '*', element: <NotFound /> },
+      {path: '/admin', element: <AdminProfile /> },
+      {path: '/createproject', element: <CreateProject /> },
     ],
   },
 ]);

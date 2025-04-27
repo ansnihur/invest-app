@@ -1,14 +1,17 @@
-.wrapper {
-    @include flex-between;
-  }
+@use '@/styles/abstracts/index' as *;
 
+.wrapper {
+  @include flex-between;
+}
 
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: $gray;
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   z-index: 1000;
   padding: 1rem 2rem;
 
@@ -44,6 +47,7 @@
 
   .authButtons {
     display: flex;
+    align-items: center;
     gap: 1rem;
 
     .register {
@@ -54,6 +58,7 @@
       font-weight: 500;
       font-size: 0.9rem;
       color: $black;
+      text-decoration: none;
 
       @include hover(background-color, $yellow);
     }
@@ -62,6 +67,22 @@
       @include btn;
       border-radius: 2rem;
       font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    button {
+      border: 1px solid $black;
+      border-radius: 2rem;
+      padding: 0.5rem 1rem;
+      background: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: $black;
+      cursor: pointer;
+      font-family: $font-family-base;
+
+      @include hover(background-color, $yellow);
     }
   }
 }
@@ -106,9 +127,12 @@
 
     a,
     .register,
-    .login {
+    .login,
+    button {
       color: $white;
       font-size: 1.5rem;
+      background: none;
+      border: none;
     }
   }
 
@@ -116,3 +140,25 @@
     transform: translateX(0);
   }
 }
+
+.logoutMessage {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $yellow;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    color: $black;
+    z-index: 2000;
+    animation: fadeInOut 2s forwards;
+  }
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
